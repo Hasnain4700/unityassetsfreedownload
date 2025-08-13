@@ -9,175 +9,7 @@
     <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', Arial, sans-serif;
-            background: radial-gradient(ellipse at 60% 0%, #1a233a 0%, #10131a 100%);
-            color: #fff;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        .stars {
-            position: fixed;
-            width: 100vw;
-            height: 100vh;
-            top: 0; left: 0;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px 0 20px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-        h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 0.2em;
-            text-shadow: 0 2px 24px #00eaff99, 0 1px 0 #222;
-            animation: fadeInDown 1s;
-        }
-        .subtitle {
-            font-size: 1.25rem;
-            color: #b0e0ff;
-            margin-bottom: 2em;
-            letter-spacing: 1px;
-            animation: fadeInDown 1.2s;
-        }
-        .stats-row {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 2.5em;
-            flex-wrap: wrap;
-            animation: fadeInUp 1.2s;
-        }
-        .stat-card {
-            background: rgba(20, 40, 60, 0.85);
-            border-radius: 14px;
-            padding: 18px 32px;
-            min-width: 140px;
-            color: #b0e0ff;
-            font-size: 1.1rem;
-            font-weight: 600;
-            box-shadow: 0 2px 16px #00eaff22;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .stat-card i {
-            font-size: 1.5rem;
-            color: #00eaff;
-            filter: drop-shadow(0 0 6px #00eaff88);
-        }
-        .stat-card:hover {
-            transform: translateY(-4px) scale(1.04);
-            box-shadow: 0 4px 32px #00eaff55;
-        }
-        .desc-section {
-            background: rgba(30, 60, 80, 0.85);
-            border-radius: 18px;
-            padding: 32px 28px;
-            margin-bottom: 2.5em;
-            box-shadow: 0 4px 32px 0 #00eaff22;
-            animation: fadeIn 1.3s;
-        }
-        .desc-section p {
-            font-size: 1.13rem;
-            line-height: 1.8;
-            color: #e0f7fa;
-        }
-        .cta-btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 20px 54px;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #fff;
-            background: linear-gradient(90deg, #00c6fb 0%, #005bea 100%);
-            border: none;
-            border-radius: 14px;
-            box-shadow: 0 2px 32px #00eaff88, 0 0 16px #00eaff44 inset;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-            position: relative;
-            overflow: hidden;
-            animation: glowPulse 2.5s infinite alternate;
-        }
-        .cta-btn:after {
-            content: '';
-            position: absolute;
-            left: -50%;
-            top: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, #00eaff44 0%, transparent 70%);
-            opacity: 0.5;
-            z-index: 0;
-            pointer-events: none;
-            animation: ctaGlow 3s infinite alternate;
-        }
-        .cta-btn span {
-            position: relative;
-            z-index: 1;
-        }
-        .cta-btn:hover {
-            background: linear-gradient(90deg, #005bea 0%, #00c6fb 100%);
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 4px 48px #00eaffcc, 0 0 24px #00eaff77 inset;
-        }
-        .socials {
-            margin-top: 2.5em;
-            animation: fadeInUp 1.4s;
-        }
-        .socials a {
-            display: inline-block;
-            margin: 0 10px;
-            color: #b0e0ff;
-            font-size: 1.6rem;
-            transition: color 0.2s, transform 0.2s;
-        }
-        .socials a:hover {
-            color: #00c6fb;
-            transform: scale(1.2);
-        }
-        @media (max-width: 700px) {
-            .container { padding: 20px 5px 0 5px; }
-            h1 { font-size: 2rem; }
-            .stats-row { flex-direction: column; gap: 14px; }
-            .stat-card { min-width: 100px; padding: 14px 10px; font-size: 1rem; }
-            .desc-section { padding: 18px 8px; }
-        }
-        /* Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes glowPulse {
-            0% { box-shadow: 0 2px 32px #00eaff88, 0 0 16px #00eaff44 inset; }
-            100% { box-shadow: 0 4px 48px #00eaffcc, 0 0 24px #00eaff77 inset; }
-        }
-        @keyframes ctaGlow {
-            0% { opacity: 0.3; }
-            100% { opacity: 0.7; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <canvas class="stars"></canvas>
@@ -203,55 +35,32 @@
             </div>
         </div>
         <a class="cta-btn" href="https://modsfire.com/modlist/Dap91g1yyw" target="_blank" rel="noopener"><span>Explore & Download Unity Assets</span></a>
+
+        <div class="featured-assets">
+            <h2 style="font-size:1.6rem;letter-spacing:1px;margin:2.5em 0 1.5em 0;text-shadow:0 2px 12px #00eaff44;">FEATURED ASSETS</h2>
+            <div class="assets-grid">
+                <div class="asset-card">
+                    <img src="https://via.placeholder.com/300x200/1a233a/b0e0ff.png?text=Asset+1" alt="Featured Asset 1">
+                    <h3>Amazing Asset Pack</h3>
+                    <p>A brief description of this amazing asset pack.</p>
+                </div>
+                <div class="asset-card">
+                    <img src="https://via.placeholder.com/300x200/1a233a/b0e0ff.png?text=Asset+2" alt="Featured Asset 2">
+                    <h3>Sci-Fi Character</h3>
+                    <p>A detailed sci-fi character model for your game.</p>
+                </div>
+                <div class="asset-card">
+                    <img src="httpshttps://via.placeholder.com/300x200/1a233a/b0e0ff.png?text=Asset+3" alt="Featured Asset 3">
+                    <h3>Fantasy Environment</h3>
+                    <p>A beautiful fantasy environment to explore.</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <script>
-    // Animated stars background
-    const canvas = document.querySelector('.stars');
-    const ctx = canvas.getContext('2d');
-    let w = window.innerWidth, h = window.innerHeight;
-    let stars = [];
-    function resize() {
-        w = window.innerWidth; h = window.innerHeight;
-        canvas.width = w; canvas.height = h;
-    }
-    window.addEventListener('resize', resize);
-    function createStars() {
-        stars = [];
-        for (let i = 0; i < 120; i++) {
-            stars.push({
-                x: Math.random() * w,
-                y: Math.random() * h,
-                r: Math.random() * 1.2 + 0.3,
-                o: Math.random() * 0.5 + 0.5,
-                s: Math.random() * 0.5 + 0.2,
-            });
-        }
-    }
-    function drawStars() {
-        ctx.clearRect(0, 0, w, h);
-        for (let star of stars) {
-            ctx.save();
-            ctx.globalAlpha = star.o;
-            ctx.beginPath();
-            ctx.arc(star.x, star.y, star.r, 0, 2 * Math.PI);
-            ctx.fillStyle = '#00eaff';
-            ctx.shadowColor = '#00eaff';
-            ctx.shadowBlur = 8;
-            ctx.fill();
-            ctx.restore();
-            // Twinkle
-            star.o += (Math.random() - 0.5) * 0.04;
-            if (star.o < 0.3) star.o = 0.3;
-            if (star.o > 1) star.o = 1;
-        }
-    }
-    function animate() {
-        drawStars();
-        requestAnimationFrame(animate);
-    }
-    resize();
-    createStars();
-    animate();
-    </script>
+    <footer class="site-footer">
+        <p>&copy; 2024 Unity Assets Free Download. All Rights Reserved.</p>
+        <p>Your one-stop destination for free Unity game assets.</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html> 
